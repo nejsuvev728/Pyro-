@@ -1,0 +1,8 @@
+{
+  "name": "Remix PyroDielectric",
+  "description": "Advanced orbital intelligence platform visualizing pre-ignition forest fuel volatility to prevent wildfires before they start.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

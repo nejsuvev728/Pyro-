@@ -1,0 +1,135 @@
+@import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Chakra Petch', sans-serif;
+
+  --color-canvas: #F1EBDD;
+  --color-card: #F7F4EC;
+  --color-surface-2: #E8EDE2;
+  --color-surface-soft: #E2E7DA;
+  --color-surface-interactive: #DDE5D7;
+  --color-pine: #263D2C;
+  --color-pine-hover: #3F5D43;
+  --color-olive: #526B45;
+  --color-sage: #87946C;
+  --color-amber-ember: #E58A3A;
+  --color-burnt-orange: #C95D35;
+  --color-fire-deep: #96382E;
+  --color-forest-text: #1E2A21;
+  --color-forest-muted: #69766A;
+  --color-leaf-border: #D3D7C9;
+  --color-border-strong: #BFC8B7;
+}
+
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.radar-sweep {
+  animation: radarSweep 6s linear infinite;
+}
+
+.scanline-anim {
+  animation: scanline 8s linear infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* Botanical warm scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1EBDD;
+}
+::-webkit-scrollbar-thumb {
+  background: #D3D7C9;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BFC8B7;
+}
+
+/* MapLibre custom styles */
+.maplibregl-popup-content {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0.75rem !important;
+}
+
+.maplibregl-popup-tip {
+  border-top-color: #F7F4EC !important;
+}
+
+.maplibregl-ctrl-attrib {
+  background-color: rgba(247, 244, 236, 0.85) !important;
+  color: #69766A !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 9px !important;
+  border-radius: 4px !important;
+  padding: 2px 6px !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: #526B45 !important;
+}
+
+/* Muted basemap filter for subdued visual focus */
+.basemap-subdued {
+  filter: saturate(0.65) contrast(0.92) brightness(0.98) sepia(0.08);
+}
+
+.basemap-satellite {
+  filter: saturate(0.85) contrast(1.05) brightness(0.88);
+}
+
+/* Critical pulsing ring */
+@keyframes criticalRadarPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(150, 56, 46, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 16px rgba(150, 56, 46, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(150, 56, 46, 0);
+  }
+}
+
+.critical-pulse-badge {
+  animation: criticalRadarPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
